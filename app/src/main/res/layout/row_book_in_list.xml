@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.morgane.thepotierlibrary.BookListActivity">
+
+    <data>
+        <variable name="book" type="com.morgane.presentation.BookViewModel"/>
+        <variable name="activity" type="com.morgane.thepotierlibrary.BookListActivity" />
+        <variable name="position" type="int" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/cover_imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:minWidth="90dp"
+            app:srcCompat="@color/colorAccent" />
+
+        <TextView
+            android:id="@+id/title_textView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@{book.title}"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/price_textView"
+            app:layout_constraintStart_toEndOf="@+id/cover_imageView"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="title" />
+
+        <TextView
+            android:id="@+id/price_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@{book.price}"
+            android:singleLine="false"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@color/colorAccent"
+            app:layout_constraintEnd_toStartOf="@+id/addToCart_imageButton"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="0 €" />
+
+        <ImageButton
+            android:id="@+id/addToCart_imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@android:color/transparent"
+            android:onClick="@{(view) -> activity.onAddToCartClick(view, position)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_add_shopping_cart_black_24dp" />
+
+        <TextView
+            android:id="@+id/synopsis_textView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:ellipsize="end"
+            android:maxLines="4"
+            android:text="@{book.synopsis}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/cover_imageView"
+            app:layout_constraintTop_toBottomOf="@+id/title_textView"
+            tools:text="synopsis" />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">La Bibliothèque d\'Henri Potier</string>
+
+    <string name="cart_title">Votre Panier</string>
+
+    <string name="cart_empty">Vous n\'avez pas ajouté de livres à votre panier.</string>
+    <string name="cart_see_label">Panier</string>
+    <string name="cart_saving">Economie réalisée :</string>
+    <string name="cart_price">Total :</string>
+
+</resources>
